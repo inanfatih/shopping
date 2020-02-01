@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
 export default class CartList extends Component {
-  renderCart = () => {
+  renderCart() {
     return (
       <Table striped>
         <thead>
@@ -16,28 +16,33 @@ export default class CartList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.cart.map(cartitem => (
-            <tr key={cartitem.product.id}>
-              <td>{cartitem.product.id}</td>
-              <td>{cartitem.product.categoryId}</td>
-              <td>{cartitem.product.productName}</td>
-              <td>{cartitem.product.unitPrice}</td>
-              <td>{cartitem.product.unitsInStock}</td>
-              <td>{cartitem.product.quantityPerUnit}</td>
+          {this.props.cart.map(cartItem => (
+            <tr key={cartItem.product.id}>
+              <td>{cartItem.product.id}</td>
+              <td>{cartItem.product.categoryId}</td>
+              <td>{cartItem.product.productName}</td>
+              <td>{cartItem.product.unitPrice}</td>
+              <td>{cartItem.product.unitsInStock}</td>
+              <td>{cartItem.quantity}</td>
             </tr>
           ))}
         </tbody>
       </Table>
     );
-  };
+  }
 
   render() {
-    return (
-      <div>
-        {() => {
-          this.renderCart();
-        }}
-      </div>
-    );
+    console.log('Cart in render indayim');
+    // Hatali yontem
+    // return (
+    //   <div>
+    //     {() => {
+    //       this.renderCart();
+    //     }}
+    //   </div>
+    // );
+
+    //Dogru yontem
+    return <div>{this.renderCart()}</div>;
   }
 }
