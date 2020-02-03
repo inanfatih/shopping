@@ -9,7 +9,7 @@ import alertify from 'alertifyjs';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 import CartList from './CartList';
-
+import FormDemo1 from './FormDemo1';
 export default class App extends Component {
   //CLASSES CAN ONLY CONTAIN METHODS AND NOT VARIABLES SO YOU CAN NOT USE VAR LET CONST IN A CLASS
 
@@ -68,7 +68,7 @@ export default class App extends Component {
     });
     console.log(this.state.cart);
 
-    alertify.success(product.productName + ' added to the cart', 3);
+    alertify.success(product.productName + ' added to the cart', 1.5);
   };
 
   removeFromCart = product => {
@@ -94,6 +94,7 @@ export default class App extends Component {
     this.setState({ cart: newCart });
 
     console.log('this.state.cart', this.state.cart);
+    alertify.error(product.productName + ' removed from cart', 1.5);
   };
 
   render() {
@@ -104,7 +105,6 @@ export default class App extends Component {
       <div>
         <Container>
           <Navi cart={this.state.cart} removeFromCart={this.removeFromCart} />
-
           <Row>
             <Col xs='3'>
               <CategoryList
@@ -127,7 +127,6 @@ export default class App extends Component {
                     />
                   )}
                 />
-
                 <Route
                   exact
                   path='/cart'
@@ -139,6 +138,7 @@ export default class App extends Component {
                     />
                   )}
                 />
+                <Route exact path='/form1' component={FormDemo1} />
                 <Route component={NotFound} />
               </Switch>
             </Col>
