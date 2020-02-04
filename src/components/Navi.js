@@ -29,6 +29,11 @@ const Navi = props => {
               </NavLink>
             </NavItem>
             <NavItem>
+              <NavLink>
+                <Link to='/form2'>Form Demo 2</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href='https://github.com/reactstrap/reactstrap'>
                 GitHub
               </NavLink>

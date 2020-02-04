@@ -10,6 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 import CartList from './CartList';
 import FormDemo1 from './FormDemo1';
+import FormDemo2 from './FormDemo2';
 export default class App extends Component {
   //CLASSES CAN ONLY CONTAIN METHODS AND NOT VARIABLES SO YOU CAN NOT USE VAR LET CONST IN A CLASS
 
@@ -139,6 +140,7 @@ export default class App extends Component {
                   )}
                 />
                 <Route exact path='/form1' component={FormDemo1} />
+                <Route exact path='/form2' component={FormDemo2} />
                 <Route component={NotFound} />
               </Switch>
             </Col>
